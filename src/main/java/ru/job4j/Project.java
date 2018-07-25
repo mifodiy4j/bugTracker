@@ -7,16 +7,21 @@ package ru.job4j;
  * @author Mikhailov Sergey
  * @since 23.07.18
  */
-public class Project {
-
-    private final String name;
+public class Project extends Model {
+    private String name;
+    private int user_id;
+    private int issue_id;
 
     /**
      * Конструктор - создание нового объекта с определенными значениями
      * @param name название проекта
+     * @param user_id id пользователя
+     * @param issue_id id неисправности
      */
-    public Project(String name) {
+    public Project(String name, int user_id, int issue_id) {
         this.name = name;
+        this.user_id = user_id;
+        this.issue_id = issue_id;
     }
 
     /**
@@ -25,5 +30,13 @@ public class Project {
      */
     public String getName() {
         return name;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public int getIssue_id() {
+        return issue_id;
     }
 }

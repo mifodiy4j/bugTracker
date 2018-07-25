@@ -7,7 +7,7 @@ package ru.job4j;
  * @author Mikhailov Sergey
  * @since 23.07.18
  */
-public class User {
+public class User extends Model {
 
     private final String name;
 

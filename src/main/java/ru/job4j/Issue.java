@@ -7,7 +7,7 @@ package ru.job4j;
  * @author Mikhailov Sergey
  * @since 23.07.18
  */
-public class Issue {
+public class Issue extends Model {
     private final String description;
 
     /**

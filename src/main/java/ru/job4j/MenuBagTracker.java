@@ -56,8 +56,12 @@ public class MenuBagTracker {
         public void execute(Input input, BugTracker tracker) {
             String nameProject = input.ask("Please, enter the project name: ");
             String nameUser = input.ask("Please, enter the user name: ");
-            String descUssue = input.ask("Please, enter the description issue: ");
-            tracker.addNew(new Project(nameProject), new User(nameUser), new Issue(descUssue));
+            String descIssue = input.ask("Please, enter the description issue: ");
+            try {
+                tracker.addNew(nameProject, nameUser, descIssue);
+            } catch (NullFieldException nfe) {
+                System.out.println("One of the entered fields is null. ");
+            }
         }
     }
 
@@ -119,7 +123,11 @@ public class MenuBagTracker {
         public void execute(Input input, BugTracker tracker) {
             String nameProject = input.ask("Please, enter the project name: ");
             String nameUser = input.ask("Please, enter the user name: ");
-            tracker.showAllIssuesForTheProjectByTheUser(nameProject, nameUser);
+            try {
+                tracker.showAllIssuesForTheProjectByTheUser(nameProject, nameUser);
+            } catch (NullFieldException nfe) {
+                System.out.println("One of the entered fields is null. ");
+            }
         }
     }
 
@@ -134,7 +142,6 @@ public class MenuBagTracker {
         }
 
         public void execute(Input input, BugTracker tracker) {
-            tracker.closeConnect();
         }
     }
 }
